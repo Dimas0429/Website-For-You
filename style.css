@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Title */
+.title {
+    margin-top: 40px;
+    color: white;
+    font-size: 38px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(255,255,255,0.8);
+}
+
+/* HEART CONTAINER */
+.heart-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.heart-gallery {
+    width: 420px;
+    height: 380px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+
+    clip-path: path("M210 370 L30 190 A95 95 0 1 1 210 110 A95 95 0 1 1 390 190 Z");
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 10px #ff4d6d); }
+    to { filter: drop-shadow(0 0 25px #ff1e56); }
+}
+
+.heart-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.heart-gallery img:hover {
+    transform: scale(1.1);
+}
+
+/* BUTTON */
+.love-btn {
+    margin-top: 35px;
+    padding: 14px 30px;
+    font-size: 17px;
+    background: rgba(255, 77, 109, 0.9);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.love-btn:hover {
+    background: #ff1e56;
+    transform: scale(1.05);
+}
+
+/* POPUP */
+.popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.popup-content {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(20px);
+    padding: 25px;
+    border-radius: 20px;
+    width: 320px;
+    color: white;
+    text-align: center;
+    animation: scaleUp 0.4s ease;
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.popup-img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.close {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* FLOATING HEARTS */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
